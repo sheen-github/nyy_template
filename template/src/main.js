@@ -10,11 +10,6 @@ new Vue({
   el: '#app',
   store,
   router,
-  {{#if_eq build "runtime"}}
-  render: h => h(App)，
-  {{/if_eq}}
-  {{#if_eq build "standalone"}}
   components: { App },
   template: '<App/>'
-  {{/if_eq}}
 })

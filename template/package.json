@@ -5,9 +5,9 @@
   "author": "{{ author }}",
   "private": true,
   "scripts": {
-    "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
+    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
     "start": "npm run dev",
-    "build": "node build/build.js"
   },
   "dependencies": {
     "vue": "^2.5.2",

@@ -36,43 +36,7 @@ module.exports = {
 	},
 
 	prompts: { // 收集用户自定义数据
-		build: {
-			when: 'isNotTest',
-			type: 'list',
-			message: 'Vue build',
-			choices: [{
-				name: '运行加编译（推荐使用）',
-				value: 'standalone',
-				short: 'standalone',
-			}, {
-				name: 'Runtime-only: about 6KB lighter min+gzip, but templates (or any Vue-specific HTML) are ONLY allowed in .vue files - render functions are required elsewhere（仅运行）',
-				value: 'runtime',
-				short: 'runtime',
-			},],
-		},
-		unit: {
-			when: 'isNotTest',
-			type: 'confirm',
-			message: 'Set up unit tests',
-		},
-		runner: {
-			when: 'isNotTest && unit',
-			type: 'list',
-			message: 'Pick a test runner',
-			choices: [{
-				name: 'Jest',
-				value: 'jest',
-				short: 'jest',
-			}, {
-				name: 'Karma and Mocha',
-				value: 'karma',
-				short: 'karma',
-			}, {
-				name: 'none (configure it yourself)',
-				value: 'noTest',
-				short: 'noTest',
-			},],
-		},
+
 	},
 	filters: { // 根据条件过滤文件
 		// 'config/test.env.js': 'unit || e2e',
