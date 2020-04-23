@@ -75,10 +75,10 @@ module.exports = {
 		},
 	},
 	filters: { // 根据条件过滤文件
-		'config/test.env.js': 'unit || e2e',
-		'build/webpack.test.conf.js': "unit && runner === 'karma'",
-		"src/store/**/*": "vuex",  //加入自己的目录
-		"src/router/**/*": "router"
+		// 'config/test.env.js': 'unit || e2e',
+		// 'build/webpack.test.conf.js': "unit && runner === 'karma'",
+		// "src/store/**/*": "vuex",  //加入自己的目录
+		// "src/router/**/*": "router"
 	},
 	complete: function (data, {
 		chalk
