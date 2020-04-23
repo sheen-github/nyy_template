@@ -22,7 +22,7 @@ module.exports = {
 		before: addTestAnswers
 	},
 	helpers: { //自定义的 Handlebars 辅助函数
-		if_or (v1, v2, options) {
+		if_or(v1, v2, options) {
 
 			if (v1 || v2) {
 				return options.fn(this)
@@ -30,21 +30,139 @@ module.exports = {
 
 			return options.inverse(this)
 		},
-		template_version () {
+		template_version() {
 			return templateVersion
 		},
 	},
 
 	prompts: { // 收集用户自定义数据
+		build: {
+			when: 'isNotTest',
+			type: 'list',
+			message: 'Vue build',
+			choices: [{
+				name: 'Runtime + Compiler: recommended for most users',
+				value: 'standalone',
+				short: 'standalone',
+			}, {
+				name: 'Runtime-only: about 6KB lighter min+gzip, but templates (or any Vue-specific HTML) are ONLY allowed in .vue files - render functions are required elsewhere',
+				value: 'runtime',
+				short: 'runtime',
+			}, ],
+		},
+		router: { // 是否安装路由
+			when: 'isNotTest',
+			type: 'confirm',
+			message: 'Install vue-router?',
+		},
+		vuex: { // 自定义
+			type: "confirm",
+			message: "Install vuex?"
+		},
+		style: { // 自定义
+			type: "confirm",
+			message: "Install choices style?",
+			choices: [{
+				name: 'default',
+				value: 'default',
+				short: 'default',
+			}, {
+				name: 'less',
+				value: 'less',
+				short: 'less',
+			}, {
+				name: 'sass',
+				value: 'sass',
+				short: 'sass',
+			}, ],
+		},
 
+		lint: {
+			when: 'isNotTest',
+			type: 'confirm',
+			message: 'Use ESLint to lint your code?',
+		},
+		lintConfig: {
+			when: 'isNotTest && lint',
+			type: 'list',
+			message: 'Pick an ESLint preset',
+			choices: [{
+				name: 'Standard (https://github.com/standard/standard)',
+				value: 'standard',
+				short: 'Standard',
+			}, {
+				name: 'Airbnb (https://github.com/airbnb/javascript)',
+				value: 'airbnb',
+				short: 'Airbnb',
+			}, {
+				name: 'none (configure it yourself)',
+				value: 'none',
+				short: 'none',
+			}, ],
+		},
+		unit: {
+			when: 'isNotTest',
+			type: 'confirm',
+			message: 'Set up unit tests',
+		},
+		runner: {
+			when: 'isNotTest && unit',
+			type: 'list',
+			message: 'Pick a test runner',
+			choices: [{
+				name: 'Jest',
+				value: 'jest',
+				short: 'jest',
+			}, {
+				name: 'Karma and Mocha',
+				value: 'karma',
+				short: 'karma',
+			}, {
+				name: 'none (configure it yourself)',
+				value: 'noTest',
+				short: 'noTest',
+			}, ],
+		},
+		e2e: {
+			when: 'isNotTest',
+			type: 'confirm',
+			message: 'Setup e2e tests with Nightwatch?',
+		},
+		autoInstall: {
+			when: 'isNotTest',
+			type: 'list',
+			message: 'Should we run `npm install` for you after the project has been created? (recommended)',
+			choices: [{
+				name: 'Yes, use NPM',
+				value: 'npm',
+				short: 'npm',
+			}, {
+				name: 'Yes, use Yarn',
+				value: 'yarn',
+				short: 'yarn',
+			}, {
+				name: 'No, I will handle that myself',
+				value: false,
+				short: 'no',
+			}, ],
+		},
 	},
 	filters: { // 根据条件过滤文件
-		// 'config/test.env.js': 'unit || e2e',
-		// 'build/webpack.test.conf.js': "unit && runner === 'karma'",
-		// "src/store/**/*": "vuex",  //加入自己的目录
-		// "src/router/**/*": "router"
+		'.eslintrc.js': 'lint',
+		'.eslintignore': 'lint',
+		'config/test.env.js': 'unit || e2e',
+		'build/webpack.test.conf.js': "unit && runner === 'karma'",
+		'test/unit/**/*': 'unit',
+		'test/unit/index.js': "unit && runner === 'karma'",
+		'test/unit/jest.conf.js': "unit && runner === 'jest'",
+		'test/unit/karma.conf.js': "unit && runner === 'karma'",
+		'test/unit/specs/index.js': "unit && runner === 'karma'",
+		'test/unit/setup.js': "unit && runner === 'jest'",
+		'test/e2e/**/*': 'e2e',
+		'src/router/**/*': 'router',
+		"src/store/**/*": "vuex", //加入自己的目录
 	},
-	complete: function (data, {
+	complete: function(data, {
 		chalk
 	}) {
 		const green = chalk.green
