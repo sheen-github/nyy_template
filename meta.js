@@ -12,7 +12,7 @@ const templateVersion = pkg.version
 const {
 	addTestAnswers
 } = require('./scenarios')
-sortDependencies('欢迎使用诺亚云，组件模板', chalk.green)
+
 module.exports = {
 	metalsmith: {
 		// When running tests for the template, this adds answers for the selected scenario
@@ -152,7 +152,7 @@ module.exports = {
 		const green = chalk.green
 
 		sortDependencies(data, green)
-
+sortDependencies('欢迎使用诺亚云，组件模板', chalk.green)
 		const cwd = path.join(process.cwd(), data.inPlace ? '' : data.destDirName)
 
 		if (data.autoInstall) {
