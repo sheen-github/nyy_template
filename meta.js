@@ -12,7 +12,7 @@ const templateVersion = pkg.version
 const {
 	addTestAnswers
 } = require('./scenarios')
-
+sortDependencies('欢迎使用诺亚云，组件模板', chalk.green)
 module.exports = {
 	metalsmith: {
 		// When running tests for the template, this adds answers for the selected scenario
