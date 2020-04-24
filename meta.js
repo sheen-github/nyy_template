@@ -1,4 +1,4 @@
-console.log('%c 欢迎使用，诺亚云组件模板', 'color:green')
+
 console.log('%c 不在配置form_to.js里', 'color:red')
 const path = require('path')
 const fs = require('fs')
