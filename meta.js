@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-
->>>>>>> b0a2d850102d0860505938dd219dccd762cd6c7f
 console.log('欢迎使用诺亚云，组件模板')
 const path = require('path')
 const fs = require('fs')
@@ -62,11 +58,7 @@ module.exports = {
 		},
 		style: { // 自定义
 			type: "list",
-<<<<<<< HEAD
 			message: "Install choices loader of Css?",
-=======
-			message: "Install choices style?",
->>>>>>> b0a2d850102d0860505938dd219dccd762cd6c7f
 			choices: [{
 				name: 'default',
 				value: 'default',
