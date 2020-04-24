@@ -60,7 +60,7 @@ module.exports = {
 			message: "Install vuex?"
 		},
 		style: { // 自定义
-			type: "confirm",
+			type: "list",
 			message: "Install choices style?",
 			choices: [{
 				name: 'default',
