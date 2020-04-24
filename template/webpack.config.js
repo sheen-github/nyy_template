@@ -4,7 +4,6 @@ const webpack = require('webpack')
 console.log(glob)
 const entry = {};
 const entryFiles = glob.sync("./src/components/**/**/*.js")
-const VueLoaderPlugin = require('vue-loader/lib/plugin');
 console.log("文件路经", entryFiles)
 entryFiles.forEach(item => {
 	let match = item.match(/src\/components\/.*\/(.*)\/config\.js/);
@@ -18,17 +17,12 @@ module.exports = {
 		path: path.resolve(__dirname, './dist'),
 		filename: '[name].js',
 	},
-	plugins: [
-		// make sure to include the plugin for the magic
-		new VueLoaderPlugin()
-	],
 	module: {
 		rules: [{
 			test: /\.css$/,
 			use: [
 				'vue-style-loader',
-				'css-loader',
-				'style-loader!css-loader'
+				'css-loader'
 			],
 		}, {
 			test: /\.vue$/,
