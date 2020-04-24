@@ -1,4 +1,5 @@
 // 该文件必须导出为一个对象, 用于定义模板的 meta 信息
+console.log("欢迎使用，诺亚云组件模板")
 const path = require('path')
 const fs = require('fs')
 
