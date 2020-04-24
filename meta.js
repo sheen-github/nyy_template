@@ -11,7 +11,7 @@ const templateVersion = pkg.version
 const {
 	addTestAnswers
 } = require('./scenarios')
-console.log('欢迎使用诺亚云，组件模板1111111235')
+console.log('欢迎使用诺亚云，组件模板125')
 module.exports = {
 	metalsmith: {
 		// When running tests for the template, this adds answers for the selected scenario
