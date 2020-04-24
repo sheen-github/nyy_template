@@ -1,8 +1,8 @@
 {
-  "name": "{{ name }}",
+  "name": "nyy_project_model",
   "version": "1.0.0",
-  "description": "{{ description }}",
-  "author": "{{ author }}",
+  "description": "组件模板",
+  "author": "An employee of inspur company ",
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
