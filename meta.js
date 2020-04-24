@@ -18,7 +18,7 @@ module.exports = {
 		before: addTestAnswers
 	},
 	helpers: { //自定义的 Handlebars 辅助函数
-		if_or(v1, v2, options) {
+		if_or (v1, v2, options) {
 
 			if (v1 || v2) {
 				return options.fn(this)
@@ -26,7 +26,7 @@ module.exports = {
 
 			return options.inverse(this)
 		},
-		template_version() {
+		template_version () {
 			return templateVersion
 		},
 	},
@@ -44,7 +44,7 @@ module.exports = {
 				name: 'Runtime-only: about 6KB lighter min+gzip, but templates (or any Vue-specific HTML) are ONLY allowed in .vue files - render functions are required elsewhere',
 				value: 'runtime',
 				short: 'runtime',
-			}, ],
+			},],
 		},
 		router: { // 是否安装路由
 			when: 'isNotTest',
@@ -55,12 +55,10 @@ module.exports = {
 			type: "confirm",
 			message: "Install vuex?"
 		},
-
 		less: { // 自定义
 			type: "confirm",
 			message: "Install less?",
 		},
-
 		lint: {
 			when: 'isNotTest',
 			type: 'confirm',
@@ -87,7 +85,7 @@ module.exports = {
 				name: 'none (configure it yourself)',
 				value: 'none',
 				short: 'none',
-			}, ],
+			},],
 		},
 		unit: {
 			when: 'isNotTest',
@@ -110,7 +108,7 @@ module.exports = {
 				name: 'none (configure it yourself)',
 				value: 'noTest',
 				short: 'noTest',
-			}, ],
+			},],
 		},
 		e2e: {
 			when: 'isNotTest',
@@ -133,7 +131,7 @@ module.exports = {
 				name: 'No, I will handle that myself',
 				value: false,
 				short: 'no',
-			}, ],
+			},],
 		},
 	},
 	filters: { // 根据条件过滤文件
@@ -151,7 +149,7 @@ module.exports = {
 		'src/router/**/*': 'router',
 		"src/store/**/*": "vuex", //加入自己的目录
 	},
-	complete: function(data, {
+	complete: function (data, {
 		chalk
 	}) {
 		const green = chalk.green
