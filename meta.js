@@ -11,7 +11,7 @@ const templateVersion = pkg.version
 const {
 	addTestAnswers
 } = require('./scenarios')
-console.log('欢迎使用诺亚云，组件模板125')
+console.log('欢迎使用诺亚云，组件模板')
 module.exports = {
 	metalsmith: {
 		// When running tests for the template, this adds answers for the selected scenario
@@ -28,7 +28,7 @@ module.exports = {
 		},
 		template_version () {
 			return templateVersion
-		},
+		}
 	},
 	prompts: { // 收集用户自定义数据
 		build: {
@@ -43,7 +43,7 @@ module.exports = {
 				name: 'Runtime-only: about 6KB lighter min+gzip, but templates (or any Vue-specific HTML) are ONLY allowed in .vue files - render functions are required elsewhere',
 				value: 'runtime',
 				short: 'runtime',
-			},],
+			}]
 		},
 		router: { // 是否安装路由
 			when: 'isNotTest',
@@ -68,7 +68,6 @@ module.exports = {
 			type: 'confirm',
 			message: 'Use ESLint to lint your code?',
 		},
-
 		lintConfig: {
 			when: 'isNotTest && lint',
 			type: 'list',
@@ -85,7 +84,7 @@ module.exports = {
 				name: 'none (configure it yourself)',
 				value: 'none',
 				short: 'none',
-			},],
+			}]
 		},
 		unit: {
 			when: 'isNotTest',
@@ -108,12 +107,12 @@ module.exports = {
 				name: 'none (configure it yourself)',
 				value: 'noTest',
 				short: 'noTest',
-			},],
+			}]
 		},
 		e2e: {
 			when: 'isNotTest',
 			type: 'confirm',
-			message: 'Setup e2e tests with Nightwatch?',
+			message: 'Setup e2e tests with Nightwatch?'
 		},
 		autoInstall: {
 			when: 'isNotTest',
@@ -122,17 +121,17 @@ module.exports = {
 			choices: [{
 				name: 'Yes, use NPM',
 				value: 'npm',
-				short: 'npm',
+				short: 'npm'
 			}, {
 				name: 'Yes, use Yarn',
 				value: 'yarn',
-				short: 'yarn',
+				short: 'yarn'
 			}, {
 				name: 'No, I will handle that myself',
 				value: false,
-				short: 'no',
-			},],
-		},
+				short: 'no'
+			}],
+		}
 	},
 	filters: { // 根据条件过滤文件
 		'.eslintrc.js': 'lint',
@@ -153,10 +152,8 @@ module.exports = {
 		chalk
 	}) {
 		const green = chalk.green
-
 		sortDependencies(data, green)
 		const cwd = path.join(process.cwd(), data.inPlace ? '' : data.destDirName)
-
 		if (data.autoInstall) {
 			installDependencies(cwd, data.autoInstall, green)
 				.then(() => {
