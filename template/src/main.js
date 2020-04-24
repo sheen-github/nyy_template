@@ -7,14 +7,17 @@ import App from './App'
 {{#router}}
 import router from './router'
 {{/router}}
-
 {{#vuex}}  
 import Vuex from 'vuex'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 import store from  './store'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 Vue.use(Vuex){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 {{/vuex}}
+{{#elementUi}}
+import 'element-ui/lib/theme-chalk/index.css';
+import ElementUI from 'element-ui';
+Vue.use(ElementUI);
+{{/elementUi}}
 Vue.config.productionTip = false
-
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
