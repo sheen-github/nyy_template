@@ -1,7 +1,7 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    <h2>诺亚云组件模板，用户组件编写以及打包</h2>
+    <h2>欢迎使用诺亚云组件模板</h2>
   </div>
 </template>
 
