@@ -1,7 +1,6 @@
-// 该文件必须导出为一个对象, 用于定义模板的 meta 信息
+console.log('欢迎使用诺亚云，组件模板')
 const path = require('path')
 const fs = require('fs')
-
 const {
 	sortDependencies,
 	installDependencies,
@@ -9,9 +8,7 @@ const {
 	printMessage,
 } = require('./utils')
 const pkg = require('./package.json')
-
 const templateVersion = pkg.version
-
 const {
 	addTestAnswers
 } = require('./scenarios')
@@ -22,7 +19,7 @@ module.exports = {
 		before: addTestAnswers
 	},
 	helpers: { //自定义的 Handlebars 辅助函数
-		if_or(v1, v2, options) {
+		if_or (v1, v2, options) {
 
 			if (v1 || v2) {
 				return options.fn(this)
@@ -30,7 +27,7 @@ module.exports = {
 
 			return options.inverse(this)
 		},
-		template_version() {
+		template_version () {
 			return templateVersion
 		},
 	},
@@ -48,7 +45,7 @@ module.exports = {
 				name: 'Runtime-only: about 6KB lighter min+gzip, but templates (or any Vue-specific HTML) are ONLY allowed in .vue files - render functions are required elsewhere',
 				value: 'runtime',
 				short: 'runtime',
-			}, ],
+			},],
 		},
 		router: { // 是否安装路由
 			when: 'isNotTest',
@@ -60,8 +57,8 @@ module.exports = {
 			message: "Install vuex?"
 		},
 		style: { // 自定义
-			type: "confirm",
-			message: "Install choices style?",
+			type: "list",
+			message: "Install choices loader of Css?",
 			choices: [{
 				name: 'default',
 				value: 'default',
@@ -74,7 +71,7 @@ module.exports = {
 				name: 'sass',
 				value: 'sass',
 				short: 'sass',
-			}, ],
+			},],
 		},
 
 		lint: {
@@ -98,7 +95,7 @@ module.exports = {
 				name: 'none (configure it yourself)',
 				value: 'none',
 				short: 'none',
-			}, ],
+			},],
 		},
 		unit: {
 			when: 'isNotTest',
@@ -121,7 +118,7 @@ module.exports = {
 				name: 'none (configure it yourself)',
 				value: 'noTest',
 				short: 'noTest',
-			}, ],
+			},],
 		},
 		e2e: {
 			when: 'isNotTest',
@@ -144,7 +141,7 @@ module.exports = {
 				name: 'No, I will handle that myself',
 				value: false,
 				short: 'no',
-			}, ],
+			},],
 		},
 	},
 	filters: { // 根据条件过滤文件
@@ -162,7 +159,7 @@ module.exports = {
 		'src/router/**/*': 'router',
 		"src/store/**/*": "vuex", //加入自己的目录
 	},
-	complete: function(data, {
+	complete: function (data, {
 		chalk
 	}) {
 		const green = chalk.green
