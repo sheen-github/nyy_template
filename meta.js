@@ -30,7 +30,6 @@ module.exports = {
 			return templateVersion
 		},
 	},
-
 	prompts: { // 收集用户自定义数据
 		build: {
 			when: 'isNotTest',
@@ -59,15 +58,15 @@ module.exports = {
 			type: "confirm",
 			message: "Install less?",
 		},
-		lint: {
-			when: 'isNotTest',
-			type: 'confirm',
-			message: 'Use ESLint to lint your code?',
-		},
 		elementUi: {
 			when: 'isNotTest',
 			type: 'confirm',
 			message: 'Install element-ui?',
+		},
+		lint: {
+			when: 'isNotTest',
+			type: 'confirm',
+			message: 'Use ESLint to lint your code?',
 		},
 		lintConfig: {
 			when: 'isNotTest && lint',
