@@ -56,22 +56,9 @@ module.exports = {
 			type: "confirm",
 			message: "Install vuex?"
 		},
-		style: { // 自定义
-			type: "list",
-			message: "Install choices loader of Css?",
-			choices: [{
-				name: 'default',
-				value: 'default',
-				short: 'default',
-			}, {
-				name: 'less',
-				value: 'less',
-				short: 'less',
-			}, {
-				name: 'sass',
-				value: 'sass',
-				short: 'sass',
-			},],
+		less: { // 自定义
+			type: "confirm",
+			message: "Install less?",
 		},
 
 		lint: {

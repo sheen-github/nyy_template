@@ -115,12 +115,10 @@
     "vue-style-loader": "^3.0.1",
     "vue-template-compiler": "^2.5.2",
     "portfinder": "^1.0.13",
-   {{#if_eq style "less"}}
+   {{#less}}
     "less-loader": "^5.0.0",
-   {{/if_eq}}
-   {{#if_eq style "sass"}}
-    "sass-loader": "^6.0.6",
-   {{/if_eq}}
+    "less": "^3.11.1",
+   {{/less}}
     "webpack": "^3.6.0",
     "webpack-dev-server": "^2.9.1",
     "webpack-merge": "^4.1.0"
