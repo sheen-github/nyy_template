@@ -45,11 +45,6 @@ module.exports = {
 				short: 'runtime',
 			}]
 		},
-		router: { // 是否安装路由
-			when: 'isNotTest',
-			type: 'confirm',
-			message: 'Install vue-router?',
-		},
 		vuex: { // 自定义
 			type: "confirm",
 			message: "Install vuex?"

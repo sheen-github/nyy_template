@@ -1,12 +1,13 @@
 const path = require('path')
 const glob = require('glob')
 const webpack = require('webpack')
-
+console.log(glob)
 const entry = {};
-const entryFiles = glob.sync("./src/component/**/**/*.js")
+const entryFiles = glob.sync("./src/components/**/**/*.js")
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 console.log("文件路经", entryFiles)
 entryFiles.forEach(item => {
-	let match = item.match(/src\/component\/.*\/(.*)\/config\.js/);
+	let match = item.match(/src\/components\/.*\/(.*)\/config\.js/);
 	let pageName = match && match[1];
 	entry["ib-" + pageName] = item;
 })
@@ -17,12 +18,17 @@ module.exports = {
 		path: path.resolve(__dirname, './dist'),
 		filename: '[name].js',
 	},
+	plugins: [
+		// make sure to include the plugin for the magic
+		new VueLoaderPlugin()
+	],
 	module: {
 		rules: [{
 			test: /\.css$/,
 			use: [
 				'vue-style-loader',
-				'css-loader'
+				'css-loader',
+				'style-loader!css-loader'
 			],
 		}, {
 			test: /\.vue$/,
