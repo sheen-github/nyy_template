@@ -152,7 +152,7 @@ module.exports = {
 		const green = chalk.green
 
 		sortDependencies(data, green)
-sortDependencies('欢迎使用诺亚云，组件模板', chalk.green)
+                sortDependencies('欢迎使用诺亚云，组件模板', green)
 		const cwd = path.join(process.cwd(), data.inPlace ? '' : data.destDirName)
 
 		if (data.autoInstall) {
